@@ -5,15 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public GameObject gamePanel;
     public float speed = 2.5f;
     public float accel = 2f;
     float acc = 0f;
+    private bool isGameWon = false;
 
   
 
     // Update is called once per frame
     void Update()
-    {   
+    {   if(isGameWon)
+        {
+            return;
+        }
         if(Input.GetAxis("Horizontal")>0)
         {
             acc += accel;
@@ -48,8 +53,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Door")
+        if(collision.tag == "Door")
         {
+            gamePanel.SetActive(true);
+            isGameWon = true;
             Debug.Log("Level Completed");
         }
         else
