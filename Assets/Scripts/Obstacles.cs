@@ -6,6 +6,7 @@ public class Obstacles : MonoBehaviour
 {
     public float min = 2f;
     public float max = 3f;
+    public float speed = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,6 @@ public class Obstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time * 2, max - min) + min, transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.PingPong(Time.time*speed, max - min) + min, transform.position.y, transform.position.z);
     }
 }
