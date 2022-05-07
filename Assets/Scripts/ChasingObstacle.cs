@@ -5,8 +5,8 @@ public class ChasingObstacle : MonoBehaviour
 
     public Transform Player;
     public int MoveSpeed = 1;
-    public int MaxDist = 10;
-    public int MinDist = 5;
+    //public int MaxDist = 10;
+    //public int MinDist = 5;
 
     void Update()
     {
